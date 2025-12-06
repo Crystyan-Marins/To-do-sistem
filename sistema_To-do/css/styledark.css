@@ -1,0 +1,180 @@
+/* ========================================================================= */
+/* 12. DARK MODE (Visão da Especialista: Preto com Verde Esmeralda/Teal) - CORRIGIDO */
+/* ========================================================================= */
+
+/* Estilos de Nível de Documento (BODY) no Dark Mode */
+body[data-theme="dark"]#user-consult-tasks-page,
+body[data-theme="dark"]#user-index-page,
+body[data-theme="dark"]#user-login-page,
+body[data-theme="dark"]#user-registration-page,
+body[data-theme="dark"]#user-cadastro-page,
+body[data-theme="dark"]#user-todo-list-page,
+body[data-theme="dark"]#user-edit-task-page,
+body[data-theme="dark"]#user-task-new-page{
+    
+    background: #121212;
+}
+
+body[data-theme="dark"]{
+    background: #121212; 
+    color: #f0f0f0;
+}
+
+
+
+/* Links em geral */
+body[data-theme="dark"] a {
+    color: #00CED1; /* Verde Esmeralda/Teal para links */
+    transition: color 0.3s;
+}
+body[data-theme="dark"] a:hover {
+    color: #00a0a3; /* Teal mais escuro no hover */
+    text-decoration: underline;
+}
+
+/* Títulos H1/H2 (Cor de destaque Verde Esmeralda/Teal) */
+/* Este seletor afeta todos os títulos não sobrescritos individualmente, como nos contêineres de To-Do, Edição e Login/Cadastro. */
+body[data-theme="dark"] h1,
+body[data-theme="dark"] h2 {
+    color: #00CED1; /* Verde Esmeralda/Teal para títulos */
+}
+
+/* Títulos Específicos que usavam a cor roxa escura #4b0082 no Light Mode: */
+
+/* Títulos da Página Inicial (Index) */
+body[data-theme="dark"] #user-main-container-index .user-home__heading-welcome {
+    color: #00CED1;
+}
+
+/* Títulos de Login */
+body[data-theme="dark"] #user-main-container-login .user-login__heading {
+    color: #00CED1;
+}
+
+/* Títulos de Cadastro */
+body[data-theme="dark"] #user-registration-page .user-cadastro__heading {
+    color: #00CED1;
+}
+
+body[data-theme="dark"] #user-registration-form label {
+    color: #ffffff;
+}
+
+body[data-theme="dark"] #user-registration-form button {
+    background-color: #00CED1;
+}
+
+body[data-theme="dark"] .user-header__navigation #user-menu-mobile {
+    background-color: #1c1c1c;
+}
+
+
+/* Títulos do To-Do (Adicionar/Listar Última) */
+body[data-theme="dark"] #user-main-container-todo h1, 
+body[data-theme="dark"] #user-main-container-todo h2 {
+    color: #00CED1;
+}
+
+/* Títulos da Edição de Tarefa */
+body[data-theme="dark"] #user-main-container-edit h1, 
+body[data-theme="dark"] #user-main-container-edit h2{
+    color: #00CED1;
+}
+
+body[data-theme="dark"] #user-main-container-edit .user-edit-task__btn--salvar {
+    background-color: #00a0a3;
+}
+
+
+/* Títulos da Consulta de Tarefas */
+body[data-theme="dark"] .user-consult__container .user-consult__heading-main,
+body[data-theme="dark"] .user-consult__container .user-consult__heading-section {
+    color: #00CED1;
+}
+
+/* Título do Card de Tarefa na Consulta */
+body[data-theme="dark"] .user-task-card .user-task-card__title {
+    color: #00CED1;
+}
+
+body[data-theme="dark"] .user-registration-page .user-main-container-cadastro button{
+    background-color: #00CED1;
+
+}
+
+/* ========================================================================= */
+/* Contêineres, Header e Footer (Reaplicação) */
+/* Garante que o fundo e bordas estejam corretos */
+/* ========================================================================= */
+body[data-theme="dark"] #user-main-container-index,
+body[data-theme="dark"] #user-main-container-login,
+body[data-theme="dark"] #user-main-container-cadastro,
+body[data-theme="dark"] #user-main-container-todo,
+body[data-theme="dark"] #user-main-container-edit,
+body[data-theme="dark"] .user-consult__container {
+    background: #1c1c1c; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Card Padrão e Card de Tarefa: Fundo mais claro para contraste */
+body[data-theme="dark"] .user-card,
+body[data-theme="dark"] .user-task-card {
+    background: #2a2a2a; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Header e Footer */
+body[data-theme="dark"] .user-navigation__list .user-button {
+    color: white;
+    transition: color 0.3s;
+}
+body[data-theme="dark"] #user-main-header,
+body[data-theme="dark"] #user-main-footer {
+    background-color: #1c1c1c; 
+    border-color: #3a3a3a;
+    color: #f0f0f0;
+}
+
+/* ========================================================================= */
+/* Botões Primários (Teal) */
+/* ========================================================================= */
+
+/* Consolidação dos Botões Primários e Links com estilo de botão */
+body[data-theme="dark"] #user-main-container-index .user-link,
+body[data-theme="dark"] #user-main-container-index .user-button--primary,
+body[data-theme="dark"] #user-btn-login-submit,
+body[data-theme="dark"] #user-btn-cadastro-submit,
+body[data-theme="dark"] #user-btn-cadastro-clear,
+body[data-theme="dark"] #user-main-container-todo .user-button,
+body[data-theme="dark"] .user-edit-task__btn--salvar {
+    background-color: #00CED1; /* Verde Esmeralda/Teal Destaque */
+    color: #121212; 
+}
+
+
+
+/* Botão de Edição de Tarefa (Teal) */
+body[data-theme="dark"] .user-task-card__btn--editar { 
+    background-color: #00CED1; 
+}
+
+/* Efeitos Hover */
+body[data-theme="dark"] #user-btn-login-submit:hover,
+/* ... (outros hovers) ... */
+body[data-theme="dark"] .user-edit-task__btn--salvar:hover,
+body[data-theme="dark"] .user-task-card__btn--editar:hover {
+    background-color: #00a0a3; /* Teal mais escuro no hover */
+}
+
+/* Link de Logout (Logout Link) */
+body[data-theme="dark"] .user-navigation__link--logout,
+body[data-theme="dark"] .user-home__link--logout {
+    color: #ff8a80; /* Mantém o vermelho suave */
+}
+
+/* Links de Login/Cadastro/Voltar (Teal) */
+body[data-theme="dark"] .user-login__register-link,
+body[data-theme="dark"] .user-cadastro__login-link,
+body[data-theme="dark"] .user-link--back {
+    color: #00CED1;
+}

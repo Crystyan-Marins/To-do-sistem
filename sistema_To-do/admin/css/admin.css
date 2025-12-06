@@ -1,0 +1,718 @@
+/* * ---------------------------------------
+ * Estilos Gerais e Utilitários
+ * Nova Paleta: 
+ * - Primário Escuro: #1C2A3A
+ * - Secundário (Acento): #00A389 (Teal/Verde Marinho)
+ * - Sucesso/Editar: #4CAF50
+ * - Perigo/Excluir: #E53935
+ * ---------------------------------------
+ */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F7F9FC; /* Fundo muito claro */
+    color: #333;
+    padding-top: 70px; /* Espaço para o header fixo */
+    padding-bottom: 70px; /* Espaço para o footer fixo */
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Container principal (usado em todas as telas de administração) */
+.container-admin-tarefa#admin-listagem-usuarios-container,
+.container-admin-tarefa#admin-listagem-tarefas-container,
+div#admin-relatorio-container,
+div#container-dashboard,
+#admin-container-edicao-usuario, 
+#admin-edicao-tarefa-container { 
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra mais evidente */
+}
+
+/* * ---------------------------------------
+ * Estilos do Cabeçalho de Navegação (Header)
+ * ---------------------------------------
+ */
+#admin-header-principal {
+    background-color: #1C2A3A; /* Azul Marinho Escuro (Primário Escuro) */
+    color: #ffffff;
+    padding: 0 30px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+#admin-header-logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+#admin-nav-lista {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 25px 15px;
+    display: block;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.admin-nav-link:hover {
+    background-color: #2C3E50; /* Tom um pouco mais claro para o hover */
+}
+
+#admin-menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#admin-link-logout {
+    background-color: #E53935; /* Vermelho Forte (Perigo) */
+    border-radius: 0 0 8px 8px; 
+}
+
+#admin-link-logout:hover {
+    background-color: #C62828; /* Hover Vermelho */
+}
+
+/* * ---------------------------------------
+ * Dashboard
+ * ---------------------------------------
+ */
+#container-dashboard h2 {
+    font-size: 2.2rem;
+    color: #1C2A3A; /* Primário Escuro */
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E0E0E0; /* Borda Neutra */
+}
+
+#container-dashboard {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#container-dashboard > h2 {
+    width: 100%; 
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #F7F9FC; /* Fundo claro para card */
+    border: 1px solid #E0E0E0;
+    border-left: 5px solid #00A389; /* Acento Teal no lado */
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 300px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    color: #1C2A3A; /* Primário Escuro */
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00A389; /* Acento Teal */
+}
+
+#nav-admin {
+    width: 100%;
+    margin-top: 30px !important;
+    padding-top: 20px;
+    border-top: 1px solid #E0E0E0;
+    text-align: center;
+}
+
+#nav-admin .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 10px;
+    background-color: #546E7A; /* Neutro Forte */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#nav-admin .btn:hover {
+    background-color: #1C2A3A; /* Primário Escuro no hover */
+}
+
+
+/* * ---------------------------------------
+ * Formulários Comuns e Títulos
+ * ---------------------------------------
+ */
+
+#admin-form-nova-tarefa {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin-label-campo {
+    font-weight: 600;
+    color: #1C2A3A; /* Primário Escuro */
+    margin-bottom: 5px;
+    display: block; 
+}
+
+/* Estilo para inputs e select box (Geral) */
+.admin-input-tarefa,
+#admin-select-id-usuario,
+.admin-input-usuario,
+#admin-select-tipo,
+#admin-edicao-tarefa-form input[type="text"],
+#admin-edicao-tarefa-form input[type="date"],
+#admin-edicao-tarefa-form input[type="time"],
+#admin-select-status {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #B0BEC5; /* Borda Neutra Suave */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px; 
+    display: block; 
+}
+
+#admin-edicao-tarefa-form input[type="text"]:focus,
+#admin-edicao-tarefa-form input[type="date"]:focus,
+#admin-edicao-tarefa-form input[type="time"]:focus,
+#admin-select-status:focus,
+.admin-input-tarefa:focus,
+#admin-select-id-usuario:focus,
+.admin-input-usuario:focus,
+#admin-select-tipo:focus {
+    border-color: #00A389; /* Acento Teal no foco */
+    box-shadow: 0 0 0 3px rgba(0, 163, 137, 0.2);
+    outline: none;
+}
+
+/* Estilos para o Select Box com ícone de seta */
+#admin-select-id-usuario,
+#admin-select-estado-civil, 
+#admin-select-genero,
+#admin-select-tipo,
+#admin-select-status {
+    /* Ícone SVG com a cor de acento #00A389 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300A389'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 18px;
+    padding-right: 35px; 
+}
+
+
+/* * ---------------------------------------
+ * Estilos da Tela de Edição de Usuário
+ * ---------------------------------------
+ */
+
+#admin-form-edicao-usuario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px 20px;
+}
+
+#admin-form-edicao-usuario > * {
+    grid-column: span 1; 
+}
+
+.admin-titulo-edicao-usuario {
+    font-size: 2.2rem;
+    color: #1C2A3A; /* Primário Escuro */
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E0E0E0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Posicionamento dos botões de edição de usuário */
+#admin-btn-salvar-usuario {
+    grid-column: 1 / 2;
+}
+#admin-link-voltar-usuario {
+    grid-column: 2 / 3;
+}
+/* Estilos para os botões de edição de usuário para ocuparem a linha inteira */
+#admin-btn-salvar-usuario,
+#admin-link-voltar-usuario {
+    display: block; 
+    width: 100%;
+    text-align: center;
+    margin-top: 5px; 
+}
+
+
+/* * ---------------------------------------
+ * Estilos da Tela de Edição de Tarefa
+ * ---------------------------------------
+ */
+
+#admin-edicao-tarefa-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px 20px;
+}
+
+/* O título e a descrição devem ocupar a largura total */
+#admin-input-titulo,
+#admin-input-descricao {
+    grid-column: 1 / -1; 
+}
+
+/* Data, Hora e Status ficam em colunas no desktop */
+#admin-input-data,
+#admin-input-hora,
+#admin-select-status {
+    grid-column: span 1;
+}
+
+/* Título da Edição de Tarefa */
+.admin-edicao-tarefa-titulo {
+    font-size: 2.2rem;
+    color: #1C2A3A; /* Primário Escuro */
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E0E0E0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Posicionamento dos botões de edição de tarefa */
+#admin-btn-salvar {
+    grid-column: 1 / 2; 
+}
+
+#admin-link-voltar {
+    grid-column: 2 / 3; 
+}
+
+/* Garante que os botões de tarefa ocupem a largura da coluna e fiquem alinhados */
+#admin-btn-salvar,
+#admin-link-voltar {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px; 
+    margin-left: 0 !important; 
+}
+
+
+/* * ---------------------------------------
+ * Tabela de Usuários e Tarefas
+ * ---------------------------------------
+ */
+/* Estilos comuns para os títulos (usados nas listagens e relatórios) */
+.admin-usuarios-titulo,
+.admin-tarefas-titulo,
+.admin-relatorio-titulo,
+.admin-nova-tarefa-titulo {
+    font-size: 2.2rem;
+    color: #1C2A3A; /* Primário Escuro */
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E0E0E0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo para os botões primários (Novo, Gerar PDF, Salvar) */
+.btn.admin-btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 15px; 
+    background-color: #00A389; /* Acento Teal */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.btn.admin-btn-primary:hover {
+    background-color: #00897B; /* Hover Acento Teal */
+    transform: translateY(-1px);
+}
+
+/* Estilo para o botão de voltar */
+.admin-btn-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #90A4AE; /* Botão Voltar Neutro */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-btn-voltar:hover {
+    background-color: #78909C; /* Hover Botão Voltar Neutro */
+    transform: translateY(-1px);
+}
+
+/* Suporta ambas as tabelas */
+#admin-tabela-usuarios,
+#admin-tabela-tarefas {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+/* Cabeçalho da tabela */
+.admin-tabela-cabecalho {
+    background-color: #1C2A3A; /* Primário Escuro */
+    color: #ffffff;
+}
+
+/* Células do cabeçalho */
+.admin-celula-cabecalho {
+    padding: 15px 10px;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Linhas de dados */
+.admin-tabela-linha-dados {
+    border-bottom: 1px solid #E0E0E0;
+    transition: background-color 0.3s ease;
+}
+
+.admin-tabela-linha-dados:nth-child(even) {
+    background-color: #fcfdfe; /* Linha par mais sutil */
+}
+
+.admin-tabela-linha-dados:hover {
+    background-color: #E0F7FA; /* Hover Suave no Teal */
+}
+
+/* Células de dados */
+.admin-celula-tarefa {
+    padding: 12px 10px;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+/* Ajuste para a coluna de Ações */
+.admin-celula-tarefa-acoes {
+    white-space: nowrap; 
+}
+
+/* * ---------------------------------------
+ * Links de Ação (Ações Comuns e Específicas de Tarefa)
+ * ---------------------------------------
+ */
+.admin-link-editar-usuario,
+.admin-link-excluir-usuario,
+.admin-link-editar,
+.admin-link-excluir,
+.admin-link-concluir,
+.admin-link-pendente {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.admin-link-editar-usuario,
+.admin-link-editar {
+    color: #4CAF50; /* Verde Sucesso */
+}
+
+.admin-link-editar-usuario:hover,
+.admin-link-editar:hover {
+    background-color: #E8F5E9; /* Hover Sucesso Suave */
+}
+
+.admin-link-excluir-usuario,
+.admin-link-excluir {
+    color: #E53935; /* Vermelho Perigo */
+    margin-left: 5px; 
+}
+
+.admin-link-excluir-usuario:hover,
+.admin-link-excluir:hover {
+    background-color: #FFEBEE; /* Hover Perigo Suave */
+}
+
+.admin-link-concluir {
+    color: #00A389; /* Acento Teal (Concluir é uma ação positiva) */
+}
+
+.admin-link-concluir:hover {
+    background-color: #E0F7FA;
+}
+
+.admin-link-pendente {
+    color: #FF9800; /* Laranja Alerta */
+}
+
+.admin-link-pendente:hover {
+    background-color: #FFF3E0; /* Hover Alerta Suave */
+}
+
+/* * ---------------------------------------
+ * Rodapé (Footer)
+ * ---------------------------------------
+ */
+#admin-footer-principal {
+    background-color: #1C2A3A; /* Primário Escuro */
+    color: #ffffff;
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#admin-footer-layout {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.admin-footer-texto {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+    color: #CFD8DC; /* Texto do footer ligeiramente cinza */
+}
+
+#admin-footer-link-voltar {
+    color: #4CAF50; /* Verde Sucesso */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+#admin-footer-link-voltar:hover {
+    color: #00A389; /* Acento Teal no hover */
+}
+
+
+/* * ---------------------------------------
+ * Responsividade (Mobile First)
+ * ---------------------------------------
+ */
+@media (max-width: 768px) {
+    /* ** 1. Responsividade do HEADER ** */
+    #admin-header-principal {
+        padding: 0 15px;
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    #admin-header-logo {
+        padding: 15px 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #admin-menu-icon {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    #admin-nav-principal {
+        width: 100%;
+    }
+    
+    #admin-nav-lista {
+        flex-direction: column;
+        display: none; 
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #admin-nav-lista.show {
+        display: flex;
+    }
+
+    .admin-nav-link {
+        padding: 12px 15px;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    #admin-link-logout {
+        border-radius: 0 0 8px 8px;
+    }
+
+    body {
+        padding-top: 70px; 
+        padding-bottom: 60px; 
+    }
+
+    /* ** 2. Responsividade do FOOTER ** */
+    #admin-footer-principal {
+        height: auto;
+        padding: 10px;
+    }
+
+    #admin-footer-layout {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .admin-footer-texto {
+        font-size: 0.85rem;
+    }
+
+    /* ** 3. Responsividade dos CONTAINERS e TÍTULOS ** */
+    #admin-container-edicao-usuario, 
+    #admin-edicao-tarefa-container,
+    .container-admin-tarefa#admin-listagem-usuarios-container,
+    .container-admin-tarefa#admin-listagem-tarefas-container,
+    div#admin-relatorio-container,
+    div#container-dashboard { 
+        margin: 20px;
+        padding: 15px;
+        flex-direction: column; 
+    }
+
+    .admin-usuarios-titulo,
+    .admin-tarefas-titulo,
+    .admin-relatorio-titulo,
+    .admin-nova-tarefa-titulo,
+    .admin-titulo-edicao-usuario,
+    .admin-edicao-tarefa-titulo,
+    #container-dashboard h2 {
+        font-size: 1.8rem;
+    }
+    
+    .card {
+        flex: 1 1 100%; 
+    }
+
+    #nav-admin {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #nav-admin .btn {
+        margin: 0;
+        width: 100%;
+    }
+
+    /* ** 4. Responsividade dos Formulários de Edição ** */
+    #admin-form-edicao-usuario,
+    #admin-edicao-tarefa-form { 
+        grid-template-columns: 1fr;
+    }
+    #admin-form-edicao-usuario > *,
+    #admin-edicao-tarefa-form > * { 
+        grid-column: 1 / -1 !important; 
+    }
+
+    /* Ajuste de Margem para Botões no Mobile */
+    .btn.admin-btn-primary,
+    .admin-btn-voltar {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* ** 5. Responsividade da TABELA ** */
+    #admin-tabela-usuarios, 
+    #admin-tabela-tarefas,
+    .admin-tabela-linha-dados, 
+    .admin-celula-tarefa {
+        display: block; 
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    #admin-tabela-usuarios thead,
+    #admin-tabela-tarefas thead {
+        display: none; 
+    }
+    
+    .admin-celula-tarefa {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px dashed #E0E0E0;
+    }
+    
+    .admin-celula-tarefa::before {
+        content: attr(data-label); 
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: #78909C; /* Cor do label em mobile */
+    }
+
+    .admin-celula-tarefa-acoes {
+        text-align: center;
+        padding: 15px 10px;
+        border-bottom: 2px solid #B0BEC5 !important;
+    }
+}

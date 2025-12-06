@@ -1,0 +1,977 @@
+/*
+ * ARQUIVO CSS REORGANIZADO E CORRIGIDO
+ * REGRA ESTRITA: TODOS os estilos são definidos DENTRO de blocos específicos de página/componente.
+ * NÃO HÁ ESTILOS GERAIS/COMPARTILHADOS (mesmo que haja repetição de código).
+ * Status: Página de Cadastro centralizada e todos os estilos desagrupados em módulos de página.
+ */
+
+/* ========================================================================= */
+/* 1. ESTILOS DE NÍVEL DE DOCUMENTO (BODY) */
+/* (Estilos globais mínimos que não podem ser aninhados em containers) */
+/* ========================================================================= */
+
+/* Estilos aplicados ao corpo da página (via ID de cada body) */
+#user-index-page,
+#user-login-page,
+#user-registration-page
+#user-cadastro-page,
+#user-todo-list-page,
+#user-edit-task-page,
+#user-consult-tasks-page {
+    /* Fonte padrão para todo o corpo. */
+    font-family: Arial, sans-serif;
+    /* Cor de fundo padrão (Light Mode). */
+    background: #f3f1ff;
+    /* Remove margens padrão do navegador. */
+    margin: 0;
+    /* Adiciona espaço na parte inferior para o rodapé fixo. */
+    padding-bottom: 120px;
+    /* Garante que o corpo ocupe pelo menos a altura da viewport. */
+    min-height: 100vh;
+}
+
+/* ========================================================================= */
+/* 2. ESTILOS DO HEADER (CABEÇALHO) - user-main-header */
+/* ========================================================================= */
+
+/* Header Principal */
+#user-main-header {
+    font-family: Arial, sans-serif;
+    /* Largura total. */
+    width: 100%;
+    /* Padding interno. */
+    padding: 15px 20px;
+    /* Usa Flexbox. */
+    display: flex;
+    /* Espaça os elementos (logo e navegação). */
+    justify-content: space-between;
+    /* Centraliza verticalmente. */
+    align-items: center;
+    /* Fixa no topo. */
+    position: fixed;
+    top: 0;
+    /* Borda inferior. */
+    border-bottom: 1px solid #ccc;
+    /* Camada de sobreposição. */
+    z-index: 100;
+    /* Cor de fundo e texto. */
+    background-color: #f3f1ff;
+    color: #000;
+}
+
+/* Logo e Ajuste Vertical */
+.user-header__logo-text {
+    /* Tamanho e peso da fonte. */
+    font-size: 22px;
+    font-weight: bold;
+    /* Ajuste de alinhamento vertical. */
+    margin-top: 0%;
+    text-align: center;
+}
+
+/* Logo e Ajuste Vertical */
+div.user-header__logo-container{
+    display: flex;
+    align-items: center;   /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 1px;  /* Espaço entre a imagem e o texto */
+
+}
+.jarvis-favcon{
+    width: 32px;
+}
+
+#user-info-system div{
+    display: flex;
+    align-items: center;   /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 1px;  /* Espaço entre a imagem e o texto */
+
+}
+#jarvis-logo-footer{
+    width: 20px;
+}
+
+
+/* Botão de Tema (Ajuste para alinhamento) */
+#user-menu-mobile li .user-button--theme-toggle {
+    margin-right: 40px;
+    margin-top: -5px;
+    text-align: center;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: medium;
+
+}
+
+#user-menu-mobile {
+    margin-right: 0;
+}
+
+#user-menu-mobile li .user-button--theme-toggle:hover{
+    transform: scale(1.05);
+}
+
+/* Lista de Navegação */
+.user-navigation__list {
+    /* Remove estilo de lista. */
+    list-style: none;
+    /* Flexbox para itens horizontais. */
+    display: flex;
+    /* Espaçamento entre itens. */
+    gap: 25px;
+    /* Margem e Padding removidos. */
+    margin: 0;
+    padding: 0;
+    margin-right: 25px;
+}
+
+.user-navigation__dark #user-btn-toggle-theme {
+    margin-top: 0;
+}
+
+/* Links de Navegação */
+.user-navigation__list .user-navigation__link, #user-navigation_perfil {
+    /* Cor herdada do header. */
+    color: inherit;
+    /* Remove sublinhado. */
+    text-decoration: none;
+    /* Tamanho da fonte. */
+    font-size: 16px;
+    /* Transição. */
+    transition: color 0.3s;
+    /* Cursor de link. */
+    cursor: pointer;
+}
+/* Links de Navegação: Efeito hover */
+.user-navigation__list .user-navigation__link:hover {
+    text-decoration: underline;
+}
+
+/* Link de Logout no Header */
+.user-navigation__link--logout { 
+    color: red; 
+}
+
+/* Ícone do Menu Mobile (Escondido no desktop) */
+.user-header__menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* ========================================================================= */
+/* 3. PÁGINA INICIAL (INDEX) - user-main-container-index */
+/* ========================================================================= */
+
+/* Contêiner da Página Inicial (user-container) */
+#user-main-container-index {
+    /* Fundo, Sombra, Largura Padrão. */
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    width: 320px;
+    margin: -10px auto;
+    text-align: center;
+    /* Centralização Absoluta. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Título de Boas-vindas (user-home__heading-welcome) */
+#user-main-container-index .user-home__heading-welcome {
+    /* Margem inferior. */
+    margin-bottom: 15px;
+    /* Cor roxa escura. */
+    color: #4b0082;
+}
+
+/* Links/Botões na Página Inicial (user-link, user-button--primary) */
+#user-main-container-index .user-link,
+#user-main-container-index .user-button--primary {
+    /* Estilos de botão/link. */
+    padding: 10px 20px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    /* Estilos repetidos de .user-button--primary */
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    width: 90%;
+    margin: 10px auto;
+    display: block; /* Para botões/links principais */
+}
+/* Links/Botões na Página Inicial: Efeito hover */
+#user-main-container-index .user-link:hover,
+#user-main-container-index .user-button--primary:hover {
+    /* Efeito de escala. */
+    transform: scale(1.05);
+    /* Efeito de cor (user-button--primary) */
+    background-color: #580ea1;
+}
+
+
+
+/* Link de Logout na Página Inicial (user-home__link--logout) */
+.user-link-user-link--logout-user-home__link--logout {
+    /* Estilos repetidos de link geral. */
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    /* Estilo de layout. */
+    display: inline-block;
+    margin-top: 15px;
+}
+/* Link de Logout: Efeito hover */
+.user-link-user-link--logout-user-home__link--logout:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+/* Card Padrão (user-card) - Usado em Index/Home */
+.user-card {
+    /* Estilos de Card. */
+    background: #f8f4ff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+}
+
+/* ========================================================================= */
+/* 4. PÁGINA DE LOGIN (user-main-container-login) */
+/* ========================================================================= */
+
+/* Contêiner de Login (user-container) */
+#user-main-container-login {
+    /* Fundo, Sombra, Largura Padrão. */
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    width: 320px;
+    margin: -10px auto;
+    text-align: center;
+    /* Centralização Absoluta. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Título H1/H2 do Login (user-login__heading) */
+#user-main-container-login .user-login__heading {
+    /* Margem inferior. */
+    margin-bottom: 15px;
+    /* Cor roxa escura. */
+    color: #4b0082;
+}
+
+/* Inputs de Login (user-form__input e user-login__input) */
+#user-main-container-login .user-login__input {
+    /* Estilos de input geral. */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    /* Estilos específicos de login. */
+    width: 75%;
+    margin: 5px;
+}
+
+/* Botão de Login: Estilo principal (user-btn-login-submit) */
+#user-btn-login-submit {
+    /* Estilos de botão. */
+    background-color: #6a0dad;
+    color: #ffffff;
+    border: none;
+    /* Estilos específicos de login. */
+    width: 75%;
+    padding: 10px 78px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+/* Botão de Login: Efeito hover */
+#user-btn-login-submit:hover {
+    background-color: #580ea1;
+    transform: scale(1.05);
+}
+
+/* Link de Cadastro (user-login__register-link) */
+.user-login__register-link {
+    /* Estilos repetidos de link geral. */
+    color: #6a0dad;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+/* Link de Cadastro: Efeito hover */
+.user-login__register-link:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+/* =========================================================================
+   PÁGINA DE CADASTRO – COMPATÍVEL COM O HTML
+   ========================================================================= */
+
+/* Container principal */
+#user-main-container-cadastro {
+    font-family: Arial, sans-serif;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    width: 450px;
+    text-align: center;
+
+    /* Centralização absoluta */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Título */
+.user-registration__heading {
+    margin-bottom: 15px;
+    color: #4b0082;
+}
+
+/* Inputs gerais */
+.user-registration__form .user-form__input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 90%;
+    margin: 5px auto;
+    display: block;
+    cursor: pointer;
+}
+
+/* Selects */
+.user-form-group__select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding-left: 70px;
+
+    margin: 5px 0;
+    display: block;
+    cursor: pointer;
+}
+
+/* Labels dos selects */
+.user-form-group__label {
+    color: #4b0082;
+    font-size: 13px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    text-align: left;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.div-select { 
+    display: flex;
+    justify-content: space-between;
+
+}
+.div-select #user-group-genero {
+    margin-left: 22px;
+    padding-right: 5px;
+    width: 50%;
+
+}
+.div-select #user-group-estado-civil {
+    margin-right: 22px;
+    padding-left: 5px;
+    width: 50%;
+}
+
+.div-select select { 
+    width: 100%;
+
+}
+
+.div--cpf--nasc { 
+    display: flex;
+    justify-content: space-between;
+
+}
+.div--cpf--nasc #user-input-nascimento {
+    margin-left: 22px;
+    width: 40%;
+    margin-right: 5px;
+
+}
+.div--cpf--nasc #user-input-cpf {
+    margin-right: 22px;
+}
+
+.div--senha { 
+    display: flex;
+    justify-content: space-between;
+
+}
+.div--senha #uesr-input-senha {
+    margin-left: 22px;
+    width: 50%;
+    margin-right: 5px;
+
+
+}
+.div--senha #user-input-senha-confirm {
+    margin-right: 22px;
+    width: 50%;
+    margin-left: 5px;
+}
+
+
+.div--button { 
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.div--button #user-btn-limpar-cadastro {
+    margin-left: 22px;
+    width: 50%;
+    margin-right: 5px;
+
+
+}
+.div--button #user-btn-submit-cadastro {
+    margin-right: 22px;
+    width: 50%;
+    margin-left: 5px;
+    padding-top: 15px;
+}
+
+
+
+
+/* Botão CADASTRAR */
+#user-btn-submit-cadastro {
+    background-color: #6a0dad;
+    color: #ffffff;
+    border: none;
+    width: 90%;
+    padding: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#user-btn-submit-cadastro:hover {
+    background-color: #580ea1;
+    transform: scale(1.02);
+}
+
+/* Botão LIMPAR */
+#user-btn-limpar-cadastro {
+    background-color: #6a0dad;
+    color: #ffffff;
+    border: none;
+    width: 90%;
+    padding: 10px 20px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+#user-btn-limpar-cadastro:hover {
+    background-color: #580ea1;
+}
+
+/* Link para login */
+.user-registration__login-link {
+    color: #6a0dad;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.user-registration__login-link:hover {
+    text-decoration: underline;
+}
+
+/* Texto da frase "já tem conta?" */
+.user-registration__login-link-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+
+/* ========================================================================= */
+/* 6. PÁGINA TO-DO (ADICIONAR/LISTAR ÚLTIMA) - user-main-container-todo */
+/* ========================================================================= */
+
+/* Contêiner To-Do (user-container) */
+#user-main-container-todo {
+    /* Fundo, Sombra, Largura Padrão. */
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    width: 320px;
+    margin: -30px auto;
+    text-align: center;
+    /* Centralização Absoluta. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Título H1/H2 do To-Do */
+#user-main-container-todo h1, 
+#user-main-container-todo h2 {
+    /* Margem inferior. */
+    margin-bottom: 15px;
+    /* Cor roxa escura. */
+    color: #4b0082;
+}
+
+/* Inputs e Botões dentro de To-Do (user-form__input, user-button) */
+#user-main-container-todo .user-form__input, 
+#user-main-container-todo .user-button {
+    /* Estilos de input/botão geral. */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    /* Estilos específicos de To-Do. */
+    margin: 3px;
+    width: 250px;
+    text-align: center;
+}
+
+/* Botão de Adicionar (user-todo__btn--add) */
+#user-main-container-todo .user-button {
+    /* Padding e margem. */
+    padding: 10px 20px;
+    margin-top: 5px;
+    /* Cantos arredondados. */
+    border-radius: 6px;
+    /* Transições. */
+    transition: transform 0.2s ease, color 0.2s ease;
+    /* Estilos de cor repetidos de .user-button--primary */
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+}
+/* Botão de Adicionar: Efeito hover */
+#user-main-container-todo .user-button:hover {
+    transform: scale(1.05);
+    background-color: #580ea1;
+}
+
+/* Links de Ação da Tarefa (user-todo__action-link) */
+.user-todo__action-link {
+    /* Estilos repetidos de link geral. */
+    color: #6a0dad;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+/* Links de Ação da Tarefa: Efeito hover */
+.user-todo__action-link:hover {
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+
+/* ========================================================================= */
+/* 7. PÁGINA EDITAR TAREFAS - user-main-container-edit */
+/* ========================================================================= */
+
+/* Contêiner de Edição (user-container) */
+#user-main-container-edit {
+    /* Fundo, Sombra, Largura Padrão. */
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    width: 320px;
+    margin: -20px auto;
+    text-align: center;
+    /* Centralização Absoluta. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Título H1/H2 da Edição */
+#user-main-container-edit h1, 
+#user-main-container-edit h2 {
+    /* Margem inferior. */
+    margin-bottom: 15px;
+    /* Cor roxa escura. */
+    color: #4b0082;
+}
+
+span img{
+    width: 32px;
+    margin-top: 0;
+}
+
+
+/* Inputs, Selects e Botões dentro de Editar (user-edit-task__input/select/button) */
+#user-main-container-edit .user-edit-task__input, 
+#user-main-container-edit .user-edit-task__select--status, 
+#user-main-container-edit .user-button {
+    /* Estilos de input/botão geral. */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    /* Estilos específicos de Edição. */
+    margin: 3px;
+    width: 250px;
+    text-align: center;
+}
+
+/* Botão de Salvar (user-edit-task__btn--salvar) */
+#user-main-container-edit .user-edit-task__btn--salvar {
+    /* Estilos de cor repetidos de .user-button--primary */
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    /* Estilos específicos de layout/tamanho. */
+    width: 250px;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+/* Botão de Edição: Efeito hover */
+#user-main-container-edit .user-button:hover {
+    transform: scale(1.05);
+    background-color: #580ea1;
+}
+
+/* Link Voltar (user-link--back) - Repetido para ter especificidade */
+#user-main-container-edit .user-button-user-button--secondary {
+    /* Estilos repetidos de link geral. */
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    /* Estilos de layout. */
+    display: block;
+    margin-top: 10px;
+}
+/* Link Voltar: Efeito hover */
+#user-main-container-edit .user-button-user-button--secondary:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+/* ========================================================================= */
+/* 8. PÁGINA CONSULTAR TAREFAS - user-consult__container */
+/* ========================================================================= */
+
+/* Contêiner de Consulta (Maior que o padrão 320px) */
+.user-consult__container {
+    /* Largura definida. */
+    width: 90%;
+    /* Fundo, Sombra. */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    /* Alinhamento de conteúdo e texto. */
+    align-items: center;
+    text-align: center;
+    /* Centralização Absoluta. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Padding interno */
+    padding: 25px;
+}
+
+/* Título Principal (user-consult__heading-main) */
+.user-consult__container .user-consult__heading-main {
+    /* Cor roxa escura. */
+    color: #4b0082;
+    /* Margem. */
+    margin-bottom: 20px;
+}
+
+/* Títulos de Seção (user-consult__heading-section) */
+.user-consult__container .user-consult__heading-section {
+    /* Cor roxa padrão. */
+    color: #6a0dad;
+    /* Margem. */
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* Card de Tarefa (user-task-card) */
+.user-task-card {
+    /* Fundo roxo claro. */
+    background: #f8f4ff;
+    /* Cantos arredondados. */
+    border-radius: 12px;
+    /* Margem. */
+    margin-bottom: 15px;
+    /* Sombra. */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    /* Necessário para posicionamento. */
+    position: relative;
+    /* Alinhamento de texto. */
+    text-align: center;
+    /* Padding para acomodar o conteúdo. */
+    padding-top: 1px;
+    padding-bottom: 20px;
+}
+
+/* Título do Card (user-task-card__title) */
+.user-task-card .user-task-card__title {
+    /* Margem. */
+    margin-bottom: 5px;
+    /* Cor roxa escura. */
+    color: #4b0082;
+}
+
+/* Parágrafos de Detalhes (user-task-card__detail) */
+.user-task-card .user-task-card__detail {
+    /* Margem compacta. */
+    margin: 3px;
+    margin-bottom: 6px;
+}
+
+/* Status da Tarefa (user-task-card__status) */
+.user-task-card__status {
+    /* Exibição inline. */
+    display: inline-block;
+    /* Padding. */
+    padding: 3px;
+    /* Cantos arredondados. */
+    border-radius: 6px;
+    /* Cor do texto. */
+    color: #fff;
+    /* Tamanho da fonte. */
+    font-size: 0.9em;
+}
+
+/* Status Pendente: Cor de fundo */
+.user-status--pendente { 
+    background-color: #f39c12; 
+}
+/* Status Concluída: Cor de fundo */
+.user-status--concluida { 
+    background-color: #27ae60; 
+}
+
+/* Botões de Ação de Tarefa (user-task-card__btn--*) */
+.user-task-card__btn--concluir,
+.user-task-card__btn--reabrir,
+.user-task-card__btn--editar,
+.user-task-card__btn--excluir {
+    /* Estilos de botão. */
+    padding: 4px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.85em;
+    transition: 0.3s;
+    /* Margens. */
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Botão de Editar */
+.user-task-card__btn--editar {
+    position: relative;
+    background-color: blue;
+    align-items: center;
+    margin-bottom: -17px;
+}
+
+/* Botão de Excluir */
+.user-task-card__btn--excluir {
+    background-color: red;
+}
+
+/* Botões de Status (Cores e Hover) */
+.user-task-card__btn--concluir { background-color: #27ae60; }
+.user-task-card__btn--concluir:hover { background-color: #219150; }
+.user-task-card__btn--reabrir { background-color: #f39c12; }
+.user-task-card__btn--reabrir:hover { background-color: #d78e0d; }
+
+/* ========================================================================= */
+/* 9. FOOTER (RODAPÉ) - user-main-footer */
+/* ========================================================================= */
+
+/* Footer: Estilos de Layout Comuns (user-main-footer) */
+#user-main-footer {
+
+    font-family: Arial, sans-serif;
+    /* Largura total. */
+    width: 100%;
+    /* Linha divisória superior. */
+    border-top: 1px solid #ccc;
+    /* Padding. */
+    padding: 0px 0;
+    /* Cor do texto. */
+    color: #333;
+    /* Margem superior. */
+    margin-top: 40px;
+    /* Posição fixa no final. */
+    bottom: 0;
+    position: fixed;
+    /* Cor de fundo. */
+    background-color: #f3f1ff; 
+}
+
+/* Contêiner de Conteúdo do Footer (user-footer__content-wrapper) */
+.user-footer__content-wrapper {
+    /* Usa Flexbox. */
+    display: flex;
+    /* Distribui o espaço. */
+    justify-content: space-around;
+    /* Permite quebra de linha. */
+    flex-wrap: wrap;
+    /* Padding e Margem. */
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+/* Blocos de Texto do Footer (user-footer__block) */
+.user-footer__block {
+    /* Largura definida. */
+    width: 30%;
+}
+
+/* Alinhamento dos Blocos */
+#user-info-system { text-align: left; }
+#user-info-copyright { text-align: center; }
+#user-info-secondary { text-align: right; }
+
+/* Links do Footer (user-footer__link) */
+.user-footer__link {
+    /* Estilos repetidos de link geral. */
+    color: #6a0dad;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Links do Footer: Efeito hover */
+.user-footer__link:hover {
+    text-decoration: underline;
+}
+
+/* ========================================================================= */
+/* 10. ESTILOS ADMIN (NÃO REVISADOS/FUTUROS) */
+/* (Mantidos para referência, mas requerem prefixo admin- em PHP/HTML) */
+/* ========================================================================= */
+
+/* Footer do Admin (admin-main-footer) - Cor de fundo */
+#admin-main-footer { 
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+    color: #333;
+    margin-top: 40px;
+    bottom: 0;
+    position: fixed;
+    background-color: #f0f0f0; 
+}
+
+/* Contêiner de Tarefas Admin */
+.container-admin-tarefa {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Contêiner de Dashboard */
+#container-dashboard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ========================================================================= */
+/* 11. RESPONSIVO (@media max-width: 768px) */
+/* ========================================================================= */
+
+@media (max-width: 768px) {
+    
+    /* Footer Responsivo */
+    .user-footer__content-wrapper {
+        flex: 100%;
+    }
+    .user-footer__block {
+        width: 100%;
+        text-align: center !important;
+        margin-bottom: 10px;
+    }
+    .user-footer__content-wrapper .user-footer__link {
+        display: inline-block;
+        margin: 5px 10px 0 0;
+    }
+
+    /* Contêineres Responsivos (Redução de Largura) */
+    .user-container {
+        width: 90%;
+        margin: 40px auto;
+    }
+    .user-consult__container {
+        padding: 20px;
+    }
+    .user-task-card {
+        padding: 20px 15px;
+    }
+    .user-edit-task__wrapper {
+        padding: 25px 20px;
+    }
+
+    /* Header Mobile: Lista de Navegação (Menu) */
+    .user-navigation__list {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        padding: 30px;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #f3f1ff;
+        transition: 0.3s;
+    }
+    /* Estado "show" para exibir o menu mobile */
+    .user-navigation__list.user-navigation__list--show { 
+        right: 0; 
+    }
+    /* Exibe o ícone do menu */
+    .user-header__menu-icon { 
+        display: block; 
+    }
+}
